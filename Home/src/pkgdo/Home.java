@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
@@ -25,10 +26,25 @@ public class Home extends Application {
     public void start(Stage stage) throws Exception {
         GridPane grid = new GridPane();
     //    Group g = new Group();
+      
+        grid.setMinWidth(600);
+        grid.setMinHeight(400);
+    
+        grid.setVgap(5);
+        grid.setHgap(20);
+        grid.setGridLinesVisible(true);
+        
+        Label tableArea = new Label("This is where tasks table will appear");
+        tableArea.setMaxWidth(600);
+        
+        GridPane.setConstraints(tableArea, 1, 1,3,1);
+        
+        grid.getChildren().addAll(tableArea);
+    
         
     
-        Button b1 = new Button("First button");
-        Button b2 = new Button("Second");
+//        Button b1 = new Button("First button");
+//        Button b2 = new Button("Second");
 //        
 //        g.getChildren().addAll(b1 , b2);
 //        b1.setLayoutX(200);
@@ -36,16 +52,16 @@ public class Home extends Application {
 //        b2.setLayoutX(250);
 //        b2.setLayoutY(280);
         
-        GridPane.setConstraints(b1, 1, 1);
-        GridPane.setConstraints(b2, 2, 1);
-        
-        BorderPane borderPane = new BorderPane();
-        borderPane.setTop(new Button("Top"));
-        
-        
-        GridPane.setConstraints(borderPane, 1, 3);
-        
-        grid.getChildren().addAll(b1,b2,borderPane);
+//        GridPane.setConstraints(b1, 1, 1);
+//        GridPane.setConstraints(b2, 2, 1);
+//        
+//        BorderPane borderPane = new BorderPane();
+//        borderPane.setTop(new Button("Top"));
+//        
+//        
+//        GridPane.setConstraints(borderPane, 1, 3);
+//        
+//        grid.getChildren().addAll(b1,b2,borderPane);
 
         Scene scene = new Scene(grid, 400, 600);
         
