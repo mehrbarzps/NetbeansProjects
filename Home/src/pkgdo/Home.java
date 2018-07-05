@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
@@ -32,16 +33,33 @@ public class Home extends Application {
     
         grid.setVgap(5);
         grid.setHgap(20);
-        grid.setGridLinesVisible(true);
+        grid.setGridLinesVisible(false);
         
         Label tableArea = new Label("This is where tasks table will appear");
-        tableArea.setMaxWidth(600);
+        tableArea.setMinWidth(600);
         
         GridPane.setConstraints(tableArea, 1, 1,3,1);
         
         grid.getChildren().addAll(tableArea);
     
+        TextField taskName = new TextField();
+        taskName.setPromptText("Enter task name");
+        taskName.setText("Please enter your username: ");
+        taskName.setMaxWidth(300);
+        GridPane.setConstraints(taskName, 2, 2);
         
+        ComboBox priority = new ComboBox();
+        priority.getItems().addAll("High","Low","Medium");
+        priority.setPromptText("Enter Priority");
+        GridPane.setConstraints(priority, 1, 2);
+        
+        Button addButton = new Button("Add");
+        addButton.setMinWidth(100);
+        GridPane.setConstraints(addButton, 3, 2);
+        
+        Button cancelButton = new Button ("Cancel");
+        cancelButton.setMinWidth(100);
+        GridPane.setConstraints(cancelButton, 3, 3);
     
 //        Button b1 = new Button("First button");
 //        Button b2 = new Button("Second");
@@ -61,9 +79,9 @@ public class Home extends Application {
 //        
 //        GridPane.setConstraints(borderPane, 1, 3);
 //        
-//        grid.getChildren().addAll(b1,b2,borderPane);
+         grid.getChildren().addAll(tableArea, taskName, priority,addButton,cancelButton);
 
-        Scene scene = new Scene(grid, 400, 600);
+        Scene scene = new Scene(grid, 600, 400);
         
         stage.setScene(scene);
         stage.setTitle("Do-It!!");
